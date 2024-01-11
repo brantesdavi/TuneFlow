@@ -11,21 +11,42 @@
         </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let album of albumList" (mouseenter)="setHoveredAlbum(album)"
-      (mouseleave)="clearHoveredAlbum()">
-      <td style="position: relative;">
-        <span class="font-bold block">{{album.title}}</span>
-        <span class="text-sm">album</span>
-        <img *ngIf="hoveredAlbum === album" [src]="album.cover" alt="Album Cover"
-             style="position: absolute; left: 50%; transform: translateX(50%); height: 150px; width: 150px;">
-      </td>
-        <td>{{album.artists}}</td>
-        <td>12 tracks</td>
-        <td>{{ formatDuration(calculateTotalDuration(album)) }}</td>
-        <td>{{album?.release | date: 'yyyy' }}</td>
-      </tr>
-      </tbody>
+        <ng-container *ngIf="!isListClosed; else limitedList">
+        <tr *ngFor="let album of albumList.slice(0, 5)" (mouseenter)="setHoveredAlbum(album)"
+            (mouseleave)="clearHoveredAlbum()">
+          <td style="position: relative;">
+            <span class="font-bold block">{{album.title}}</span>
+            <span class="text-sm">album</span>
+            <img *ngIf="hoveredAlbum === album" [src]="album.cover" alt="Album Cover"
+                style="position: absolute; left: 50%; transform: translateX(50%); height: 150px; width: 150px;">
+          </td>
+            <td>{{album.artists}}</td>
+            <td>12 tracks</td>
+            <td>{{ formatDuration(calculateTotalDuration(album)) }}</td>
+            <td>{{album?.release | date: 'yyyy' }}</td>
+        </tr>
+        </ng-container>
+        <ng-template #limitedList>
+          <tr *ngFor="let album of albumList" (mouseenter)="setHoveredAlbum(album)"
+          (mouseleave)="clearHoveredAlbum()">
+            <td style="position: relative;">
+              <span class="font-bold block">{{album.title}}</span>
+              <span class="text-sm">album</span>
+              <img *ngIf="hoveredAlbum === album" [src]="album.cover" alt="Album Cover"
+                  style="position: absolute; left: 50%; transform: translateX(50%); height: 150px; width: 150px;">
+            </td>
+              <td>{{album.artists}}</td>
+              <td>12 tracks</td>
+              <td>{{ formatDuration(calculateTotalDuration(album)) }}</td>
+              <td>{{album?.release | date: 'yyyy' }}</td>
+          </tr>
+        </ng-template>
       
+      
+      </tbody>      
     </table>
+    <div class="py-2 see-more" style="border-bottom: 1px solid #8B8B8B" (click)="toggleList()">
+      <span class="">Ver mais</span>
+    </div>
   </div>
 </div>  

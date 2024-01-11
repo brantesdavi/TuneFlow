@@ -14,6 +14,13 @@ export class HorizontalListComponent {
 
   albumList: Album[] = ALBUMS
 
+  isListClosed: boolean = false;
+
+  toggleList(){
+    this.isListClosed = !this.isListClosed;
+    console.log(this.isListClosed)
+  }
+
   setHoveredAlbum(album: any) {
     this.hoveredAlbum = album;
   }
