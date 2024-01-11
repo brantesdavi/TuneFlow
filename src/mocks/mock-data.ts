@@ -5,12 +5,20 @@ export const ALBUMS: Album[] = [
   {
     title: "GUTS",
     artists: "Olivia Rodrigo",
-    musics: [{
-      title: "vampire",
-      artists: "Olivia Rodrigo",
-      release: new Date(),
-      duration: 219
-    }],
+    musics: [
+        {
+            title: "vampire",
+            artists: "Olivia Rodrigo",
+            release: new Date(),
+            duration: 219
+        },
+        {
+            title: "vampire",
+            artists: "Olivia Rodrigo",
+            release: new Date(),
+            duration: 7190
+        },
+    ],
     cover: "https://m.media-amazon.com/images/I/91rzIsvpwjL._AC_UF1000,1000_QL80_.jpg",
     release: new Date()
   },

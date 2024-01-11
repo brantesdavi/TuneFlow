@@ -21,7 +21,7 @@
       </td>
         <td>{{album.artists}}</td>
         <td>12 tracks</td>
-        <td>39 min 18 s</td>
+        <td>{{ formatDuration(calculateTotalDuration(album)) }}</td>
         <td>{{album?.release | date: 'yyyy' }}</td>
       </tr>
       </tbody>
