@@ -1,0 +1,20 @@
+<div class=" hover:bg-indigo-200 cursor-pointer p-2 rounded-lg inline-block album-body">
+  <img 
+  [src]="album?.cover"
+  width="210" height="210" 
+  alt="Descrição da Imagem"
+  class="rounded-lg"
+>
+  <div>
+    <span class="text-xl" style="font-weight: 600;">{{album?.title}}</span>
+    <div class="flex items-center gap-1 text-xs">
+      <span style="color: #272727;">{{album?.artists}}</span>
+      <div style="background-color: #272727; width: 4px; height: 4px; border-radius: 50%;"></div>
+      <span style="color: #272727;">{{album?.release | date: 'yyyy' }}</span>
+    
+    </div>
+  </div>
+
+</div>
+
+<div></div>

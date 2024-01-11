@@ -1,0 +1,31 @@
+<div class="text-white" style="">
+  <div>
+    <table class="w-full">
+      <thead>
+        <tr>
+          <th class="text-left">Title</th>
+          <th>Artists</th>
+          <th>Tracks</th>
+          <th>Duration</th>
+          <th>Year</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let album of albumList" (mouseenter)="setHoveredAlbum(album)"
+      (mouseleave)="clearHoveredAlbum()">
+      <td style="position: relative;">
+        <span class="font-bold block">{{album.title}}</span>
+        <span class="text-sm">album</span>
+        <img *ngIf="hoveredAlbum === album" [src]="album.cover" alt="Album Cover"
+             style="position: absolute; left: 50%; transform: translateX(50%); height: 150px; width: 150px;">
+      </td>
+        <td>{{album.artists}}</td>
+        <td>12 tracks</td>
+        <td>39 min 18 s</td>
+        <td>{{album?.release | date: 'yyyy' }}</td>
+      </tr>
+      </tbody>
+      
+    </table>
+  </div>
+</div>  
