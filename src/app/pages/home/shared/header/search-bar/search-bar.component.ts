@@ -12,14 +12,14 @@ export class SearchBarComponent {
   albumsFiltrados: Album[] = [];
 
   ngOnInit() {
-    // Inicialmente, exiba todos os álbuns
   }
 
   atualizarResultados() {
-    // Filtrar álbuns com base no termo de pesquisa no título
-    this.albumsFiltrados = ALBUMS.filter(album =>
-      album.title.toLowerCase().includes(this.termoDeBusca.toLowerCase())
-    );
+    if(this.termoDeBusca){
+      this.albumsFiltrados = ALBUMS.filter(album =>
+        album.title.toLowerCase().includes(this.termoDeBusca.toLowerCase())
+      );
+    }
   }
 
 }
