@@ -1,0 +1,23 @@
+<div class="flex" style="position: relative">
+    <input 
+      type="text" 
+      placeholder="Search for the music" 
+      class="px-3 py-1 w-full" 
+      style="background-color: #2B2B2B;"
+      [(ngModel)]="termoDeBusca"
+    >
+    <button class="bg-white" style="color: #8B8B8B; background-color: #2B2B2B;" (click)="atualizarResultados()">Buscar</button>
+    <div *ngIf="albumsFiltrados.length > 0"  
+        class="my-2"  
+        style="position: absolute; width: 100%; top: 100%; background-color: #2B2B2B;">
+        <div *ngFor="let album of albumsFiltrados" 
+            class="py-2 px-4 text-white flex w-full"
+            style="border-bottom: 1px solid #8B8B8B"
+            >
+            <span class="w-full">{{ album.title.length > 14 ? album.title.slice(0, 14) + '...' : album.title }}</span>
+            <span class="w-full text-center">{{ album.artists.length > 14 ? album.artists.slice(0, 14) + '...' : album.artists }}</span>
+            <span class="w-full text-end">{{ album.release | date: 'yyyy' }}</span>
+        </div>
+    </div>
+    
+</div>
